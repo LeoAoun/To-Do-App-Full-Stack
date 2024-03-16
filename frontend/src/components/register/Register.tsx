@@ -35,7 +35,7 @@ export default function Register() {
     } 
     catch (error: any) {
       if (error.response) {
-        const errorMessage = error.response.data.message;
+        const errorMessage = error.response.data.statusText;
         toast.error(errorMessage);
       } 
       else {

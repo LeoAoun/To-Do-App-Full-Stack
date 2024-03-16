@@ -1,5 +1,5 @@
 import "./Container.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { TodosContext, TodosContextType } from "../../providers/TodoProvider";
@@ -12,6 +12,7 @@ import { getTodos } from "../../CRUD functions/CRUDFunctions";
 import CreateTodo from "./create-todo/CreateTodo";
 import Filter from "./filter/Filter";
 import List from "./list/List";
+import Description from "./list/description/Description";
 
 export default function Todos() {
   const { setTodosList, alertChange } =
@@ -87,6 +88,7 @@ export default function Todos() {
         <List />
         <Filter />
         <CreateTodo />
+        <Description />
       </div>
     </>
   );

@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    depends_on:
-      - backend
 
   backend:
     container_name: backend
@@ -26,7 +24,6 @@ services:
         condition: service_healthy
     command: >
       sh -c "npm run migrate && npm start" 
-
 
   database:
     image: postgres:latest

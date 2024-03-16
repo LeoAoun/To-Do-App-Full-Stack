@@ -10,7 +10,7 @@ class UserService {
 
     if (!email || !password) {
       return res.status(400).json({
-        message: "Missing email or password",
+        statusText: "Missing email or password",
       });
     }
 
@@ -22,7 +22,7 @@ class UserService {
 
     if (userExists) {
       return res.status(400).json({
-        message: "User already exists",
+        statusText: "User already exists",
       });
     }
 
@@ -43,7 +43,7 @@ class UserService {
 
     if (!email || !password) {
       return res.status(400).json({
-        message: "Missing email or password",
+        statusText: "Missing email or password",
       });
     }
 
@@ -55,7 +55,7 @@ class UserService {
 
     if (!user) {
       return res.status(400).json({
-        message: "User not found",
+        statusText: "User not found",
       });
     }
 
@@ -63,7 +63,7 @@ class UserService {
 
     if (!passwordMatch) {
       return res.status(400).json({
-        message: "Incorrect password",
+        statusText: "Incorrect password",
       });
     }
 
@@ -110,7 +110,7 @@ class UserService {
     })
 
     return res.status(200).json({
-      message: 'User deleted'
+      statusText: 'User deleted'
     })
   }
 

@@ -35,10 +35,7 @@ export default function Login({ session }: LoginProps) {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        `${apiUrl}/login`,
-        formData
-      );
+      const response = await axios.post(`${apiUrl}/login`, formData);
 
       toast.info("User logged in successfully");
 
@@ -46,11 +43,12 @@ export default function Login({ session }: LoginProps) {
       userId = response.data.user.id;
 
       navigate(`/todos/${session}`);
-      
-    } catch (error: any) {
+    } 
+    catch (error: any) {
       if (error.response) {
-        const errorMessage = error.response.data.message;
+        const errorMessage = error.response.data.statusText;
         toast.error(errorMessage);
+        console.log(error)
       } else {
         toast.error("Error logging in user");
       }

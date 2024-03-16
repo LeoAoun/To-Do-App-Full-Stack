@@ -9,28 +9,43 @@ import { PRIORITY } from "../../../enums/PriorityEnum";
 import { PRIORITY_COLOR } from "../../../enums/PriorityEnum";
 
 import { handleCheck, deleteTodo } from "../../../CRUD functions/CRUDFunctions";
+import { TodoType } from "../../../types/TodoType";
 
 const trashImg = require("../../../images/trash.png");
 
 export default function List() {
-  const { todosList, setTodosList, setAlertChange } =
+  const { todosList, setTodosList, setShowDescription, setAlertChange } =
     useContext<TodosContextType>(TodosContext);
 
+  function showDescriptionComponent(
+    event: React.MouseEvent<HTMLElement>,
+    todo: TodoType
+  ) {
+    if (event.target === event.currentTarget) {
+      setShowDescription([true, todo]);
+    }
+  }
   return (
     <ul className="list">
       {todosList &&
         todosList.length > 0 &&
         todosList.map((todo: any) => (
-          <li key={todo.id}>
+          <li key={todo.id} onClick={(e) => showDescriptionComponent(e, todo)}>
             <input
               onChange={() => handleCheck(todo, setAlertChange)}
               checked={todo.completed}
               type="checkbox"
               className="checkbox"
             />
-            <span className="title">{todo.title}</span>
+            <span
+              className="title"
+              onClick={(e) => showDescriptionComponent(e, todo)}
+            >
+              {todo.title}
+            </span>
             <span
               className="priority"
+              onClick={(e) => showDescriptionComponent(e, todo)}
               style={{
                 backgroundColor:
                   todo.priority === PRIORITY.HIGH

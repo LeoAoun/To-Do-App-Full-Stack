@@ -14,22 +14,16 @@
   align-items: center;
 
   overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: red black;
+}
 
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
+.list::-webkit-scrollbar {
+  display: none;
 }
 
 .list li {
   cursor: pointer;
   background-color: #f4f4f4;
-  box-shadow: 0 0 10px 1px black;
+  box-shadow: 0 0 4px 1px black;
 
   width: 46rem;
   padding: 1rem;
@@ -129,7 +123,7 @@
 
 @media screen and (max-width: 600px) {
   .list {
-    width: 100%;
+    width: 95%;
   }
   .list .title {
     width: 16rem;
@@ -168,7 +162,7 @@
 
 @media screen and (max-width: 360px) {
   .list {
-    border-radius: 0;
+    width: 98%;
   }
   .list .title {
     min-height: 1rem;
@@ -189,7 +183,7 @@
 
 @media screen and (max-height: 1366px) {
   .list {
-    height: 60rem;
+    height: 50rem;
   }
 }
 
@@ -220,13 +214,13 @@
 
 @media screen and (max-height: 780px) {
   .list {
-    height: 28rem;
+    height: 26rem;
   }
 }
 
 @media screen and (max-height: 667px) {
   .list {
-    height: 25rem;
+    height: 20rem;
   }
 }
 

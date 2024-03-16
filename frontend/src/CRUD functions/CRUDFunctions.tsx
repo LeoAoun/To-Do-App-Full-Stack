@@ -28,31 +28,37 @@ function getTodos(
 }
 
 // Function to create a new todo in the database and update the todos list
-function createTodo(
+const createTodo = async (
+  event: any,
   todoData: TodoTypeDTO,
   alertChange: boolean,
   setAlertChange: React.Dispatch<boolean>,
   location: Location,
   navigate: NavigateFunction
-) {
-  axios
-    .post(`${apiUrl}/todo`, todoData, {
+) => {
+  event.preventDefault();
+  try {
+    const response = await axios.post(`${apiUrl}/todo`, todoData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
-    .then((response) => {
-      const newSearchParams = new URLSearchParams(location.search);
-      newSearchParams.set("createtodocomponent", "false");
-      navigate({ search: "?" + newSearchParams.toString() });
-
-      setAlertChange(!alertChange);
-      toast.success("Todo created successfully");
-    })
-    .catch((error: Error) => {
-      toast.error("Error creating todo");
     });
-}
+
+    const newSearchParams = new URLSearchParams(location.search);
+    newSearchParams.set("createtodocomponent", "false");
+    navigate({ search: "?" + newSearchParams.toString() });
+
+    setAlertChange(!alertChange);
+    toast.success("Todo created successfully");
+  } catch (error: any) {
+    if (error.response) {
+      const errorMessage = error.response.data.statusText;
+      toast.error(errorMessage);
+    } else {
+      toast.error("Error creating todo");
+    }
+  }
+};
 
 // Function to handle the checkbox of the todo item (completed or not) in the database and update the todos list
 function handleCheck(
@@ -74,12 +80,7 @@ function handleCheck(
       setAlertChange((prevAlertChange) => !prevAlertChange);
     })
     .catch((error: any) => {
-      if (error.response) {
-        alert(error.response.data.message);
-      } else {
-        alert("Erro ao atualizar tarefa");
-        console.log(error);
-      }
+      toast.error("Error updating todo");
     });
 }
 
@@ -100,9 +101,7 @@ function deleteTodo(
       toast.success("Todo deleted successfully");
     })
     .catch((error: any) => {
-      if (error.response) {
-        alert(error.response.data.message);
-      }
+      toast.error("Error deleting todo");
     });
 }
 

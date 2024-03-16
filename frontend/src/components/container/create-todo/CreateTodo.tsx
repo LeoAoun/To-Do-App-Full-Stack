@@ -40,10 +40,31 @@ export default function CreateTodo() {
   // Change the state of the 'showComponent' variable according to the 'createtodocomponent' parameter in the URL
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const createtodocomponent = searchParams.get("createtodocomponent");
+    
+    const createTodoComponent = searchParams.get("createtodocomponent");
 
-    if (createtodocomponent === "true") setShowComponent(true);
-    else setShowComponent(false);
+    if (createTodoComponent === "true") setShowComponent(true);
+    
+    else {
+      const input = document.querySelector('input[name="title"]') as HTMLInputElement;
+      const select = document.querySelector('select[name="priority"]') as HTMLInputElement;
+      const textarea = document.querySelector('textarea[name="description"]') as HTMLTextAreaElement;
+
+      if (input && select && textarea) {
+        input.value = "";
+        select.value = "";
+        textarea.value = "";
+
+        setTodoData({
+          title: "",
+          description: "",
+          completed: false,
+          priority: "" as PRIORITY,
+          userId: userId,
+        });
+      }
+      setShowComponent(false);
+    }
   }, [location.search]);
 
   // Function to hide the CreateTodoComponent
@@ -96,8 +117,9 @@ export default function CreateTodo() {
           ></textarea>
 
           <button
-            onClick={() =>
+            onClick={(event) =>
               createTodo(
+                event,
                 todoData,
                 alertChange,
                 setAlertChange,

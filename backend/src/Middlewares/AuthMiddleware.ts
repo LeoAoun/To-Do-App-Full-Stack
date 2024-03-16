@@ -8,7 +8,7 @@ async function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
 
   if (!headers || !headers.startsWith("Bearer")) {
     return res.status(401).json({
-      message: "Missing authorization header",
+      statusText: "Missing authorization header",
     });
   }
 
@@ -16,7 +16,7 @@ async function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
 
   if (!token) {
     return res.status(401).json({
-      message: "Missing token",
+      statusText: "Missing token",
     });
   }
 
@@ -31,16 +31,14 @@ async function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
 
     if (!user) {
       return res.status(401).json({
-        message: "User not found",
+        statusText: "User not found",
       });
     }
-
-    //  req.user = user;
 
     next();
   } catch (error) {
     return res.status(401).json({
-      message: "Invalid token",
+      statusText: "Invalid token",
     });
   }
 }
