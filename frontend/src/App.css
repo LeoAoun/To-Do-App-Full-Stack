@@ -1,0 +1,9 @@
+.App {
+  background-image: url("./images/background.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

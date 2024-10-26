@@ -1,0 +1,124 @@
+.background-add-container {
+  background-color: rgba(0, 0, 0, 0.97);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.add-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 5.4rem;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-rows: auto auto;
+  grid-template-columns: 3fr 0fr;
+
+  gap: 0;
+}
+
+.add-container input {
+  border: 1px solid black;
+  border-right: 0;
+  outline: none;
+
+  width: 100%;
+  padding: 10px 0 10px 10px;
+
+  border-top-left-radius: 5px;
+  font-size: 20px;
+}
+
+.add-container select {
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+
+  width: 160px;
+
+  border-top-right-radius: 5px;
+
+  text-align: center;
+  border: 1px solid black;
+  font-size: 20px;
+
+  &:focus-visible {
+    background-color: #bbbbbb;
+    outline: 1px solid #000000;
+  }
+
+  &:hover {
+    background-color: #bbbbbb;
+  }
+  
+}
+
+.add-container textarea {
+  border: 1px solid black;
+  border-top: 0;
+  resize: none;
+  outline: none;
+
+  width: 100%;
+  padding-left: 5px;
+
+  border-bottom-left-radius: 5px;
+}
+
+.add-container button {
+  outline: none;
+  border: 1px solid black;
+  border-top: 0;
+  color: white;
+  background-color: #007bff;
+
+  width: 160px;
+  border-end-end-radius: 5px;
+
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:focus-visible {
+    background-color: #0055b1;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .add-container {
+    width: 90%;
+  }
+
+  .add-container input {
+    width: 100%;
+    padding: 10px 0 10px 10px;
+    font-size: 1rem;
+  }
+
+  .add-container select {
+    width: 9rem;
+    font-size: 1rem;
+  }
+
+  .add-container button {
+    width: 9rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .add-container select {
+    width: 8rem;
+  }
+
+  .add-container button {
+    width: 8rem;
+  }
+}

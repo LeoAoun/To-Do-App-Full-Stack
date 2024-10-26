@@ -1,0 +1,232 @@
+.list {
+  background-color: rgb(223, 222, 222);
+  list-style: none;
+
+  width: 50rem;
+  height: 30rem;
+  padding: 1rem 0 2rem 0;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: scroll;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.list li {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 4px 1px black;
+
+  width: 46rem;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list .checkbox {
+  cursor: pointer;
+  background-color: #237061;
+  appearance: none;
+
+  border-radius: 50%;
+
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 1rem;
+}
+
+.list .checkbox:checked {
+  background-image: url("../../../images/check.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.15rem;
+}
+
+.list .title {
+  color: black;
+  word-wrap: break-word;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 30rem;
+}
+
+.list .priority {
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+
+  width: 5rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+
+.list div {
+  display: flex;
+}
+
+.list img {
+  cursor: pointer;
+  border-radius: 2px;
+
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+}
+
+.list .delete {
+  background-color: rgb(253, 35, 35);
+  border-radius: 2px;
+  padding: 0.25rem;
+  transition: background-color 0.15s ease;
+}
+
+.list .delete:hover {
+  background-color: rgb(170, 0, 0);
+  border-radius: 2px;
+  padding: 0.25rem;
+}
+
+@media screen and (max-width: 800px) {
+  .list {
+    width: 90%;
+    margin-top: 3rem;
+  }
+
+  .list li {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .list .title {
+    width: 25rem;
+  }
+
+  .list .priority {
+    font-size: 0.8rem;
+    width: 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    width: 95%;
+  }
+  .list .title {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .list .checkbox {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 0.3rem;
+  }
+
+  .list .checkbox:checked {
+    background-size: 0.6rem;
+  }
+
+  .list .title {
+    font-size: 1rem;
+    width: 12rem;
+    min-height: 1.5rem;
+  }
+
+  .list .priority {
+    font-size: 0.6rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    width: 3rem;
+  }
+
+  .list .delete {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .list {
+    width: 98%;
+  }
+  .list .title {
+    min-height: 1rem;
+    font-size: 0.8rem;
+    width: 8rem;
+  }
+
+  .list .priority {
+    height: 1rem;
+    line-height: 1rem;
+  }
+
+  .list .delete {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+@media screen and (max-height: 1366px) {
+  .list {
+    height: 50rem;
+  }
+}
+
+@media screen and (max-height: 1280px) {
+  .list {
+    height: 45rem;
+  }
+}
+
+@media screen and (max-height: 1024px) {
+  .list {
+    height: 40rem;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .list {
+    height: 34rem;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .list {
+    height: 32rem;
+  }
+}
+
+@media screen and (max-height: 780px) {
+  .list {
+    height: 26rem;
+  }
+}
+
+@media screen and (max-height: 667px) {
+  .list {
+    height: 20rem;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .list {
+    height: 14rem;
+    margin-top: 1rem;
+  }
+}
