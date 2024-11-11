@@ -16,4 +16,4 @@ COPY . .
 
 RUN npm run build
 
-CMD npx prisma migrate dev --name init && npm start
+CMD npx prisma migrate deploy && npm start
